@@ -866,3 +866,37 @@
 .flash {
     animation-name: flash;
 }
+
+.drop-shadow {
+    -webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
+}
+
+.container.drop-shadow {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.imgsize {
+    /*display: block;*/
+    margin-left: auto;
+    margin-right: auto;
+    width: 210px !important;
+}
+
+.marginT {
+    margin-top: 100px;
+}
+
+.marginB {
+    margin-bottom: 60px;
+}
+
+.whatsapp {
+    background-color: #25d366 !important;
+    border-color: #25d366 !important;
+}
+
+.carroH {
+    max-height:20% !important;
+}
