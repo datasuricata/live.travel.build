@@ -892,11 +892,20 @@
     margin-bottom: 60px;
 }
 
-.whatsapp {
-    background-color: #25d366 !important;
-    border-color: #25d366 !important;
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
 }
 
-.carroH {
-    max-height:20% !important;
-}
+    .video-container iframe,
+    .video-container object,
+    .video-container embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }

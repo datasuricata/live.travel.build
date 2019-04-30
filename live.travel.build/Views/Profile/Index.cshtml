@@ -1,0 +1,232 @@
+﻿@{
+    ViewData["Title"] = "Profile";
+}
+
+<body class="profile-page sidebar-collapse">
+    <div class="page-header header-filter" data-parallax="true" style="background-image: url('../assets/img/banner/banner2.png');"></div>
+    <div class="main main-raised">
+        <div class="profile-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 ml-auto mr-auto">
+                        <div class="profile">
+                            <div class="avatar">
+                                <img src="../assets/img/profile/profile.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+                            </div>
+                            <div class="name">
+                                <h3 class="title">Lucas Rocha de Moraes</h3>
+                                <h6>Arquiteto de Software</h6>
+                                <a href="#pablo" class="btn btn-just-icon btn-link btn-dribbble"><i class="fa fa-whatsapp"></i></a>
+                                <a href="#pablo" class="btn btn-just-icon btn-link btn-twitter"><i class="fa fa-instagram"></i></a>
+                                <a href="#pablo" class="btn btn-just-icon btn-link btn-pinterest"><i class="fa fa-facebook"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="description text-center">
+                    <p>Olá, pessoal! Eu, Fred Curi, advogado de Floripa, e estou no clube desde março de 2018. Minha paixão é a pesca esportiva e, desde que conheci nosso clube de viagens, meu conceito de turismo mudou completamente. Realizar meus sonhos é um dos grandes diferenciais que eu vislumbre. Nossa comunidade promove viagens fantásticas, aliadas a um serviço totalmente diferenciado, pensado e planejado exclusivamente para que tenhamos experiências inesquecíveis. Sem contar, é claro, que temos a garantia de menor preço, SEMPRE! Somado a isto e seguindo uma tendência mundial, a empresa faz sua expansão através do marketing de relacionamento, entendendo que pessoas indicam serviços e produtos que gostam e consomem, a DreamTrips se tornou o Maior Clube de Viagens do Planeta, com 13 anos de atuação, presente em 41 países e com mais de 2,5 milhões membros associados. Juntos, temos a possibilidade de aproveitar o melhor da vida, com muito mais liberdade, diversão e satisfação! “Making a living, living."</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 ml-auto mr-auto">
+                        <div class="profile-tabs">
+                            <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#studio" role="tab" data-toggle="tab">
+                                        <i class="material-icons">airplanemode_active</i> Viagens
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#works" role="tab" data-toggle="tab">
+                                        <i class="material-icons">beach_access</i> Trabalhos
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content tab-space">
+                    <div class="tab-pane active text-center gallery" id="studio">
+                        <div class="row">
+                            <div class="col-md-3 ml-auto">
+                                <img src="../assets/img/exemples/exemple2.jpg" class="rounded">
+                                <img src="../assets/img/exemples/exemple1.jpg" class="rounded">
+                            </div>
+                            <div class="col-md-3 mr-auto">
+                                <img src="../assets/img/exemples/exemple1.jpg" class="rounded">
+                                <img src="../assets/img/exemples/exemple2.jpg" class="rounded">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane text-center gallery" id="works">
+                        <div class="row">
+                            <div class="col-md-3 ml-auto">
+                                <img src="../assets/img/exemples/exemple1.jpg" class="rounded">
+                                <img src="../assets/img/exemples/exemple2.jpg" class="rounded">
+                                <img src="../assets/img/exemples/exemple2.jpg" class="rounded">
+                            </div>
+                            <div class="col-md-3 mr-auto">
+                                <img src="../assets/img/exemples/exemple1.jpg" class="rounded">
+                                <img src="../assets/img/exemples/exemple2.jpg" class="rounded">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+            </div>
+            <div class="container">
+                <!-- Partial Institucional -->
+                <partial name="_Institucional" />
+
+                <div class="section text-center">
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                        <i class="material-icons">library_books</i> ASSOCIE-SE
+                        <div class="ripple-container"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Cadastro de Sócio</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="material-icons">clear</i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form" method="" action="">
+                    <div class="card-body">
+                        <span class="bmd-form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">face</i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Nome completo...">
+                            </div>
+                        </span>
+                        <span class="bmd-form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">mail</i>
+                                    </span>
+                                </div>
+                                <input type="email" class="form-control" placeholder="Email...">
+                            </div>
+                        </span>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"> aasdasdjaçlsdjçladjsçalsdjçaljsdçlajdsçjaçsljdçajsdçalsdjçasdj
+                                    <span class="circle">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" checked=""> aasdasdjaçlsdjçladjsçalsdjçaljsdçlajdsljaçsljdçajsdçalsdjçasdj
+                                    <span class="circle">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="form-check disabled">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios11" value="option1" disabled=""> aasdasdjaçlsdjçladjsçalsdjçaljsdçlaadçljaçsljdçajsdçalsdjçasdj
+                                    <span class="circle">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="form-check disabled">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" name="exampleRadio1" id="exampleRadios21" value="option2" checked="" disabled=""> aasdasdjaçlsdjçladjsçalsdjsdçlajdsçladçljaçsljdçajsdçalsdjçasdj
+                                    <span class="circle">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" value=""> aasdasdjaçlsdjçladjsçalsdjçaljsdçlajdsçladçljaçsljjsdçalsdjçasdj
+                                    <span class="form-check-sign">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" value="" checked=""> aasdasdjaçlsdjçladjsçalsdjçaljsdçlajdsçladçljaçsljdççalsdjçasdj
+                                    <span class="form-check-sign">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="form-check disabled">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" value="" disabled=""> aasdasdjaçlsdjçladjsçalsdjçaljsdçlajdsçladçljaçsljddçalsdjçasdj
+                                    <span class="form-check-sign">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="form-check disabled">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" value="" disabled="" checked=""> aasdasdjaçlsdjçladjsçalsdjçaljsdçlajdsçladaçsljdçajsdçalsdjçasdj
+                                    <span class="form-check-sign">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        <span class="bmd-form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">mail</i>
+                                    </span>
+                                </div>
+                                <input type="email" class="form-control" placeholder="Email...">
+                            </div>
+                        </span>
+                        <span class="bmd-form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">mail</i>
+                                    </span>
+                                </div>
+                                <input type="email" class="form-control" placeholder="Email...">
+                            </div>
+                        </span>
+                        <span class="bmd-form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">lock_outline</i>
+                                    </span>
+                                </div>
+                                <input type="password" class="form-control" placeholder="Senha...">
+                            </div>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-link">Vamos Nessa</button>
+                <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Cancelar<div class="ripple-container"><div class="ripple-decorator ripple-on ripple-out" style="left: 35.5834px; top: 12.5px; background-color: rgb(244, 67, 54); transform: scale(8.51041);"></div></div></button>
+            </div>
+        </div>
+    </div>
+</div>

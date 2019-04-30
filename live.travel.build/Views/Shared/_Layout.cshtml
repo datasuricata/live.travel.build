@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,7 +16,7 @@
     <nav class="navbar navbar-color-on-scroll fixed-top navbar-expand-lg navbar-transparent" color-on-scroll="100" id="sectionsNav">
         <div class="container">
             <div class="navbar-translate">
-                <a class="navbar-brand" href="https://demos.creative-tim.com/material-kit/index.html">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
                     VIVER DE VIAJAR
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,10 +29,11 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="dropdown nav-item">
-                        <a href="#" class="nav-link" aria-expanded="false">
+                        <a href="#" class="nav-link" aria-expanded="false" style="color:#25d366 !important">
                             <i class="fa fa-whatsapp"></i>  Suporte
                         </a>
                     </li>
+
                     <li class="dropdown nav-item">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">
                             <i class="material-icons">apps</i> Serviços
@@ -64,6 +65,11 @@
                             <i class="fa fa-instagram"></i>
                         </a>
                     </li>
+                    <li class="dropdown nav-item">
+                        <a asp-controller="Profile" asp-action="Index" class="nav-link" aria-expanded="false">
+                            <i class="material-icons">person_pin</i> Perfil
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a asp-controller="Login" asp-action="Index" class="btn btn-rose btn-raised btn-round">
                             Login
@@ -75,7 +81,7 @@
         </div>
     </nav>
 
-        @RenderBody()
+    @RenderBody()
 
     <footer class="footer">
         <div class="container">
