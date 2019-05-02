@@ -71,15 +71,18 @@
                         </div>
                     </div>
                 </div>
-                <hr />
+            </div>
+            <div class="btn btn-primary banner" data-toggle="modal" data-target="#associar">
+                <h2> ASSOCIE-SE</h2>
+                <div class="ripple-container"></div>
             </div>
             <div class="container">
                 <!-- Partial Institucional -->
                 <partial name="_Institucional" />
 
                 <div class="section text-center">
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                        <i class="material-icons">library_books</i> ASSOCIE-SE
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#associar">
+                        <i class="material-icons">star_border</i> EU NÃO QUERO FICAR DE FORA DESSA
                         <div class="ripple-container"></div>
                     </button>
                 </div>
@@ -90,142 +93,329 @@
 
 
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+<div class="modal fade" id="associar" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 920px;" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Cadastro de Sócio</h5>
+                <div class="title text-center">
+                    <h3>
+                        Para ter acesso a <strong>milhares de ofertas e pacotes de viagens</strong> você precisa ser um associado!
+                        Por favor escolha um dos planos.
+                    </h3>
+                </div>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <i class="material-icons">clear</i>
                 </button>
             </div>
             <div class="modal-body">
-                <form class="form" method="" action="">
-                    <div class="card-body">
-                        <span class="bmd-form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="material-icons">face</i>
-                                    </span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Nome completo...">
-                            </div>
-                        </span>
-                        <span class="bmd-form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="material-icons">mail</i>
-                                    </span>
-                                </div>
-                                <input type="email" class="form-control" placeholder="Email...">
-                            </div>
-                        </span>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"> aasdasdjaçlsdjçladjsçalsdjçaljsdçlajdsçjaçsljdçajsdçalsdjçasdj
-                                    <span class="circle">
-                                        <span class="check"></span>
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" checked=""> aasdasdjaçlsdjçladjsçalsdjçaljsdçlajdsljaçsljdçajsdçalsdjçasdj
-                                    <span class="circle">
-                                        <span class="check"></span>
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="form-check disabled">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios11" value="option1" disabled=""> aasdasdjaçlsdjçladjsçalsdjçaljsdçlaadçljaçsljdçajsdçalsdjçasdj
-                                    <span class="circle">
-                                        <span class="check"></span>
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="form-check disabled">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="exampleRadio1" id="exampleRadios21" value="option2" checked="" disabled=""> aasdasdjaçlsdjçladjsçalsdjsdçlajdsçladçljaçsljdçajsdçalsdjçasdj
-                                    <span class="circle">
-                                        <span class="check"></span>
-                                    </span>
-                                </label>
+                <div class="card card-nav-tabs">
+                    <div class="card-header card-header-primary">
+                        <!-- colors: "header-primary", "header-info", "header-success", "header-info", "header-danger" -->
+                        <div class="nav-tabs-navigation">
+                            <div class="nav-tabs-wrapper">
+                                <ul class="nav nav-tabs centralize" data-tabs="tabs">
+                                    <li class="nav-item">
+                                        <a class="nav-link active show" href="#platinum" data-toggle="tab">
+                                            <i class="material-icons">whatshot</i> platinum
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#gold" data-toggle="tab">
+                                            <i class="material-icons">layers</i> gold
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" value=""> aasdasdjaçlsdjçladjsçalsdjçaljsdçlajdsçladçljaçsljjsdçalsdjçasdj
-                                    <span class="form-check-sign">
-                                        <span class="check"></span>
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" value="" checked=""> aasdasdjaçlsdjçladjsçalsdjçaljsdçlajdsçladçljaçsljdççalsdjçasdj
-                                    <span class="form-check-sign">
-                                        <span class="check"></span>
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="form-check disabled">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" value="" disabled=""> aasdasdjaçlsdjçladjsçalsdjçaljsdçlajdsçladçljaçsljddçalsdjçasdj
-                                    <span class="form-check-sign">
-                                        <span class="check"></span>
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="form-check disabled">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" value="" disabled="" checked=""> aasdasdjaçlsdjçladjsçalsdjçaljsdçlajdsçladaçsljdçajsdçalsdjçasdj
-                                    <span class="form-check-sign">
-                                        <span class="check"></span>
-                                    </span>
-                                </label>
-                            </div>
-                        </div>
-                        <span class="bmd-form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="material-icons">mail</i>
-                                    </span>
-                                </div>
-                                <input type="email" class="form-control" placeholder="Email...">
-                            </div>
-                        </span>
-                        <span class="bmd-form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="material-icons">mail</i>
-                                    </span>
-                                </div>
-                                <input type="email" class="form-control" placeholder="Email...">
-                            </div>
-                        </span>
-                        <span class="bmd-form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="material-icons">lock_outline</i>
-                                    </span>
-                                </div>
-                                <input type="password" class="form-control" placeholder="Senha...">
-                            </div>
-                        </span>
                     </div>
-                </form>
+                    <div class="card-body ">
+                        <div class="tab-content text-center">
+                            <div class="tab-pane active show" id="platinum">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="info">
+                                            <div class="icon icon-info">
+                                                <i class="material-icons">local_offer</i>
+                                            </div>
+                                            <h4><b>Adesão ao Clube</b></h4>
+                                            <p>US$ <b>149,90</b> no ato.</p>
+                                            <p>Crédito de <b>100 DT pontos</b> para compras dentro do Clube.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="info">
+                                            <div class="icon icon-info">
+                                                <i class="material-icons">local_offer</i>
+                                            </div>
+                                            <h4><b>Mês ao Clube</b></h4>
+                                            <p>US$ <b>99,90</b> mês seguinte.</p>
+                                            <p>Crédito de <b>1200 DT pontos</b> para compras dentro do Clube após 12 meses.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="info">
+                                            <div class="icon icon-info">
+                                                <i class="material-icons">local_offer</i>
+                                            </div>
+                                            <h4><b>Mês Royalties</b></h4>
+                                            <p>US$ <b>25,00</b> mês seguinte.</p>
+                                            <p>Taxa mensal do Representante.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="title">
+                                    <h3>Acompanhe as vantagens em aderir um plano <b>PLATINUM</b>.</h3>
+                                </div>
+                                <hr />
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <button class="btn btn-sm btn-info w-100">
+                                            <i class="material-icons">beach_access</i> 24/hs Suporte
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                        <button class="btn btn-sm btn-info w-100">
+                                            <i class="material-icons">beach_access</i> Descontos em restaurantes
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                        <button class="btn btn-sm btn-info w-100">
+                                            <i class="material-icons">beach_access</i> Descontos em entretenimento
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                        <button class="btn btn-sm btn-info w-100">
+                                            <i class="material-icons">beach_access</i> Shopping online
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button class="btn btn-sm btn-info w-100">
+                                            <i class="material-icons">beach_access</i> RateShrinker
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                        <button class="btn btn-sm btn-info w-100">
+                                            <i class="material-icons">beach_access</i>Acesso a pré-venda DreamTrips
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                        <button class="btn btn-sm btn-info w-100">
+                                            <i class="material-icons">beach_access</i> Traslado premium
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                        <button class="btn btn-sm btn-info w-100">
+                                            <i class="material-icons">beach_access</i> Check-in/out                                            <div class="ripple-container"></div>
+                                        </button>
+                                        <button class="btn btn-sm btn-info w-100">
+                                            <i class="material-icons">beach_access</i> Abater até 50% em pontos
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button class="btn btn-sm btn-info w-100">
+                                            <i class="material-icons">beach_access</i> 50% Em upgrade de quartos
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                        <button class="btn btn-sm btn-info w-100">
+                                            <i class="material-icons">beach_access</i> Exclusividade em DreamTrips
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                        <button class="btn btn-sm btn-info w-100">
+                                            <i class="material-icons">beach_access</i> Viagens exclusivas para Platinum
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                        <button class="btn btn-sm btn-info w-100">
+                                            <i class="material-icons">beach_access</i> Evacuação em caso de emergência
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="gold">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="info">
+                                            <div class="icon icon-warning">
+                                                <i class="material-icons">local_offer</i>
+                                            </div>
+                                            <h4><b>Adesão ao Clube</b></h4>
+                                            <p>US$ <b>149,90</b> no ato.</p>
+                                            <p>Crédito de <b>100 DT pontos</b> para compras dentro do Clube.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="info">
+                                            <div class="icon icon-warning">
+                                                <i class="material-icons">local_offer</i>
+                                            </div>
+                                            <h4><b>Mês ao Clube</b></h4>
+                                            <p>US$ <b>56,90</b> mês seguinte.</p>
+                                            <p>Crédito de <b>684 DT pontos</b> para compras dentro do Clube após 12 meses.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="info">
+                                            <div class="icon icon-warning">
+                                                <i class="material-icons">local_offer</i>
+                                            </div>
+                                            <h4><b>Mês Royalties</b></h4>
+                                            <p>US$ <b>25,00</b> mês seguinte.</p>
+                                            <p>Taxa mensal do Representante.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="title">
+                                    <h3>Acompanhe as vantagens em aderir um plano <b>GOLD</b>.</h3>
+                                </div>
+                                <hr />
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <button class="btn btn-sm btn-warning w-100">
+                                            <i class="material-icons">beach_access</i> 24/hs Suporte
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                        <button class="btn btn-sm btn-warning w-100">
+                                            <i class="material-icons">beach_access</i> Descontos em restaurantes
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button class="btn btn-sm btn-warning w-100">
+                                            <i class="material-icons">beach_access</i> RateShrinker
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                        <button class="btn btn-sm btn-warning w-100">
+                                            <i class="material-icons">beach_access</i> Descontos em entretenimento
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button class="btn btn-sm btn-warning w-100">
+                                            <i class="material-icons">beach_access</i> Acesso a pré-venda DreamTrips
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="card card-nav-tabs">
+                    <div class="card-header card-header-primary">
+                        <!-- colors: "header-primary", "header-info", "header-success", "header-info", "header-danger" -->
+                        <div class="nav-tabs-navigation">
+                            <div class="nav-tabs-wrapper">
+                                <ul class="nav nav-tabs centralize" data-tabs="tabs">
+                                    <li class="nav-item">
+                                        <a class="nav-link active show" href="#cadastro" data-toggle="tab">
+                                            <i class="material-icons">person_pin</i> cadastro
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content text-center">
+                            <div class="tab-pane active show" id="cadastro">
+                                <div class="row">
+                                    <div class="col-md-8 ml-auto mr-auto">
+                                        <form class="contact-form">
+                                            <div class="row">
+                                                <div class="title">
+                                                    <h3>Nós entraremos em contato com você para continuar o cadastro.</h3>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked=""> Eu quero o plano <b>PLATINUM</b>
+                                                            <span class="circle">
+                                                                <span class="check"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">  Eu quero o plano <b>GOLD</b>
+                                                            <span class="circle">
+                                                                <span class="check"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr />
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group bmd-form-group">
+                                                        <label class="label-control bmd-label-static">Nome</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group bmd-form-group">
+                                                        <label class="label-control bmd-label-static">E-mail</label>
+                                                        <input type="email" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group bmd-form-group is-filled">
+                                                        <label class="label-control bmd-label-static">Data de Nascimento</label>
+                                                        <input type="text" class="form-control datetimepicker" value="@DateTime.Now.ToString("dd/MM/yyyy")">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group bmd-form-group">
+                                                        <label class="label-control bmd-label-static">Telefone (com prefixo)</label>
+                                                        <input type="email" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group bmd-form-group">
+                                                        <label class="label-control bmd-label-static">Cidade</label>
+                                                        <input type="email" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group bmd-form-group">
+                                                        <label class="label-control bmd-label-static">Estado</label>
+                                                        <input type="email" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group bmd-form-group">
+                                                        <label class="label-control bmd-label-static">País</label>
+                                                        <input type="email" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group bmd-form-group">
+                                                        <label class="label-control bmd-label-static">Senha</label>
+                                                        <input type="password" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-link">Vamos Nessa</button>
-                <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Cancelar<div class="ripple-container"><div class="ripple-decorator ripple-on ripple-out" style="left: 35.5834px; top: 12.5px; background-color: rgb(244, 67, 54); transform: scale(8.51041);"></div></div></button>
+                <button type="submit" class="btn btn-primary">Vamos Nessa</button>
+                <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">sem pressa<div class="ripple-container"><div class="ripple-decorator ripple-on ripple-out" style="left: 35.5834px; top: 12.5px; background-color: rgb(244, 67, 54); transform: scale(8.51041);"></div></div></button>
             </div>
         </div>
     </div>
