@@ -1,33 +1,38 @@
 ﻿using live.travel.solution.Controllers.Base;
-using live.travel.solution.Data;
+using live.travel.solution.Manager;
 using live.travel.solution.Models;
 using live.travel.solution.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace live.travel.solution.Controllers {
     [Authorize]
     public class DashboardController : CoreController {
 
-        private readonly ApplicationDbContext _context;
+        private readonly SiteManager _siteManager;
+        private readonly PersonManager _personManager;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public DashboardController(ApplicationDbContext context) {
-            _context = context;
+        public DashboardController(PersonManager personManager, SiteManager siteManager, UserManager<IdentityUser> userManager) {
+            _personManager = personManager;
+            _siteManager = siteManager;
+            _userManager = userManager;
         }
 
         public IActionResult Index() {
             return View();
         }
 
+        public IActionResult Formularios() {
+            return View();
+        }
+
         public async Task<IActionResult> Site() {
-            var logged = User?.Identity?.Name;
-            var site = await _context.Sites.Include(i => i.Person).Include(i => i.Person.IdentityUser)
-                .Where(x => x.Person.IdentityUser.Email == logged).FirstOrDefaultAsync();
+            var site = await _siteManager.GetCurrent(User?.Identity?.Name);
             return View((DashboardViewModel)site);
         }
 
@@ -36,10 +41,12 @@ namespace live.travel.solution.Controllers {
         public async Task<IActionResult> Site(DashboardViewModel vm) {
 
             try {
-                if (!string.IsNullOrEmpty(vm?.Id)) {
-                    var site = await _context.Sites.SingleOrDefaultAsync(x => x.Id == vm.Id);
-                    site = SetProperties(vm);
-                }
+                var user = await _userManager.GetUserAsync(HttpContext.User);
+                await _siteManager.UpdateOrRegister(vm.BannerUri, vm.InstaUri, vm.FaceUri, vm.WhatsUri, vm.Job, vm.Presentation, user?.Id);
+
+                if (!string.IsNullOrEmpty(vm.PhotoUri))
+                    await _personManager.UpdatePhoto(vm.PhotoUri, user?.Id);
+
                 return RedirectToAction(nameof(Site));
             } catch (Exception e) {
                 SetMessage(e.Message, Models.Core.MsgType.Error);
@@ -47,16 +54,18 @@ namespace live.travel.solution.Controllers {
             }
         }
 
-        private static Models.Core.Site SetProperties(DashboardViewModel vm) {
-            return new Models.Core.Site {
-                Id = vm.Id,
-                BannerUri = vm.BannerUri,
-                FaceUri = vm.FaceUri,
-                InstaUri = vm.InstaUri,
-                Job = vm.Job,
-                Presentation = vm.Presentation,
-                WhatsUri = vm.WhatsUri,
-            };
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SiteJob(DashboardViewModel vm) {
+
+            try {
+                var user = await _userManager.GetUserAsync(HttpContext.User);
+                await _siteManager.UpdateJob(vm.Presentation, user?.Id);
+                return RedirectToAction(nameof(Site));
+            } catch (Exception e) {
+                SetMessage(e.Message, Models.Core.MsgType.Error);
+                return RedirectToAction(nameof(Index));
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -23,10 +23,25 @@
             <h4>Criar nova conta.</h4>
             <hr />
             <div asp-validation-summary="All" class="text-danger"></div>
-            @*<div class="form-group">
+            <div class="form-group">
                 <label asp-for="Input.Name"></label>
                 <input asp-for="Input.Name" class="form-control" />
                 <span asp-validation-for="Input.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.RG"></label>
+                <input asp-for="Input.RG" class="form-control" />
+                <span asp-validation-for="Input.RG" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.CPF"></label>
+                <input asp-for="Input.CPF" class="form-control" />
+                <span asp-validation-for="Input.CPF" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <a>Foto de Perfil</a>
+                <input asp-for="Input.Photo" type="file" />
+                <span asp-validation-for="Input.Photo" class="text-danger"></span>
             </div>*@
             <div class="form-group">
                 <label asp-for="Input.Email"></label>

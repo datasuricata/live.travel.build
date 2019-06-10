@@ -1,14 +1,9 @@
 ﻿@model live.travel.solution.Models.ViewModels.DashboardViewModel
 
-@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
-
-
 @{
-    ViewData["Title"] = "Profile";
-    bool IsMe = SignInManager.IsSignedIn(User);
-    string Uri = Model.PhotoUri ?? "'../assets/img/banner/banner2.png'";
+    ViewData["Title"] = Model.Name;
+    string Uri = Model.BannerUri ?? "'../assets/img/banner/banner2.png'";
+    string Photo = Model.PhotoUri ?? "../assets/img/profile/profile.jpg";
 }
 
 <body class="profile-page sidebar-collapse">
@@ -20,19 +15,19 @@
                     <div class="col-md-6 ml-auto mr-auto">
                         <div class="profile">
                             <div class="avatar">
-                                <img src="../assets/img/profile/profile.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+                                <img src="@Photo" alt="Circle Image" class="img-raised rounded-circle img-fluid">
                             </div>
                             <div class="name">
                                 <h3 class="title">@Model.Name</h3>
                                 <h6>@Model.Job</h6>
                                 @if (!string.IsNullOrEmpty(Model.WhatsUri)) {
-                                    <a href="#pablo" class="btn btn-just-icon btn-link btn-dribbble"><i class="fa fa-whatsapp"></i></a>
+                                    <a href="@Model.WhatsUri" class="btn btn-just-icon btn-link btn-dribbble"><i class="fa fa-whatsapp"></i></a>
                                 }
                                 @if (!string.IsNullOrEmpty(Model.InstaUri)) {
-                                    <a href="#pablo" class="btn btn-just-icon btn-link btn-twitter"><i class="fa fa-instagram"></i></a>
+                                    <a href="@Model.InstaUri" class="btn btn-just-icon btn-link btn-twitter"><i class="fa fa-instagram"></i></a>
                                 }
                                 @if (!string.IsNullOrEmpty(Model.FaceUri)) {
-                                    <a href="#pablo" class="btn btn-just-icon btn-link btn-pinterest"><i class="fa fa-facebook"></i></a>
+                                    <a href="@Model.FaceUri" class="btn btn-just-icon btn-link btn-pinterest"><i class="fa fa-facebook"></i></a>
                                 }
                             </div>
                         </div>
@@ -218,7 +213,8 @@
                                             <div class="ripple-container"></div>
                                         </button>
                                         <button class="btn btn-sm btn-info w-100">
-                                            <i class="material-icons">beach_access</i> Check-in/out                                            <div class="ripple-container"></div>
+                                            <i class="material-icons">beach_access</i> Check-in/out                                            
+                                            <div class="ripple-container"></div>
                                         </button>
                                         <button class="btn btn-sm btn-info w-100">
                                             <i class="material-icons">beach_access</i> Abater até 50% em pontos
@@ -337,7 +333,7 @@
                             <div class="tab-pane active show" id="cadastro">
                                 <div class="row">
                                     <div class="col-md-8 ml-auto mr-auto">
-                                        <form class="contact-form">
+                                        <form class="contact-form" asp-controller="Profile" asp-action="Formulario">
                                             <div class="row">
                                                 <div class="title">
                                                     <h3>Nós entraremos em contato com você para continuar o cadastro.</h3>
@@ -380,9 +376,9 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <div class="form-group bmd-form-group is-filled">
+                                                    <div class="form-group bmd-form-group">
                                                         <label class="label-control bmd-label-static">Data de Nascimento</label>
-                                                        <input type="text" class="form-control datetimepicker" value="@DateTime.Now.ToString("dd/MM/yyyy")">
+                                                        <input type="date" class="form-control datetimepicker">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -413,12 +409,6 @@
                                                         <input type="email" class="form-control">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group bmd-form-group">
-                                                        <label class="label-control bmd-label-static">Senha</label>
-                                                        <input type="password" class="form-control">
-                                                    </div>
-                                                </div>
                                             </div>
                                         </form>
                                     </div>
@@ -435,3 +425,5 @@
         </div>
     </div>
 </div>
+
+<script src="~/assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>

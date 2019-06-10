@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using live.travel.solution.Data;
 
-namespace live.travel.solution.Data.Migrations
+namespace live.travel.solution.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190610175706_0000000000001")]
+    partial class _0000000000001
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -183,6 +185,42 @@ namespace live.travel.solution.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("live.travel.solution.Models.Core.Form", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("BirthDate");
+
+                    b.Property<string>("City");
+
+                    b.Property<DateTimeOffset?>("CreatedAt");
+
+                    b.Property<string>("Email");
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("PersonId");
+
+                    b.Property<int>("Plan");
+
+                    b.Property<string>("Provincy");
+
+                    b.Property<string>("State");
+
+                    b.Property<int>("Status");
+
+                    b.Property<string>("Tell");
+
+                    b.Property<DateTimeOffset?>("UpdatedAt");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Form");
                 });
 
             modelBuilder.Entity("live.travel.solution.Models.Core.Person", b =>

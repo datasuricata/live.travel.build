@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Editor de Sites";
     Layout = "~/Views/Shared/_Dashboard.cshtml";
-    TempData["SiteBuilder"] = "active";
+    TempData["Site"] = "active";
 
     string Uri = Model.PhotoUri ?? "../assets/img/profile/profile.jpg";
 }
@@ -19,19 +19,19 @@
                     </div>
                     <div class="card-body">
                         <form asp-controller="Dashboard" asp-action="SiteBuilder" method="post">
-                            <input asp-for="Id" type="hidden"/>
+                            <input asp-for="Id" type="hidden" />
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="bmd-label-floating">Foto de Capa</label>
-                                        <input asp-for="BannerUri" type="text" class="form-control" />
+                                        <label>Foto de Capa</label>
+                                        <input asp-for="BannerUri" type="text" class="form-control" placeholder="Url da sua imagem de capa" />
                                         <span asp-validation-for="BannerUri" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="bmd-label-floating">Foto de Perfil</label>
-                                        <input asp-for="PhotoUri" type="text" class="form-control" />
+                                        <label>Foto de Perfil</label>
+                                        <input asp-for="PhotoUri" type="text" class="form-control" placeholder="Url da sua imagem de perfil" />
                                         <span asp-validation-for="PhotoUri" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -39,22 +39,22 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="bmd-label-floating">Link Instagram</label>
-                                        <input asp-for="InstaUri" type="text" class="form-control" />
+                                        <label>Link Instagram</label>
+                                        <input asp-for="InstaUri" type="text" class="form-control" placeholder="https://www.instagram.com/myprofile/" />
                                         <span asp-validation-for="InstaUri" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="bmd-label-floating">Link Facebook</label>
-                                        <input asp-for="FaceUri" type="text" class="form-control" />
+                                        <label>Link Facebook</label>
+                                        <input asp-for="FaceUri" type="text" class="form-control" placeholder="https://www.facebook.com/myprofile" />
                                         <span asp-validation-for="FaceUri" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="bmd-label-floating">Link WhastApp</label>
-                                        <input asp-for="WhatsUri" type="text" class="form-control" />
+                                        <label>Link WhastApp</label>
+                                        <input asp-for="WhatsUri" type="text" class="form-control" placeholder="https://api.whatsapp.com/send?phone=5541998623719" />
                                         <span asp-validation-for="WhatsUri" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -62,21 +62,21 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="bmd-label-floating">Nome</label>
-                                        <input asp-for="Name" type="text" class="form-control" />
+                                        <label>Nome</label>
+                                        <input asp-for="Name" type="text" class="form-control" placeholder="Seu nome completo" />
                                         <span asp-validation-for="Name" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="bmd-label-floating">Atividade</label>
-                                        <input asp-for="Job" type="text" class="form-control" />
+                                        <label>Atividade</label>
+                                        <input asp-for="Job" type="text" class="form-control" placeholder="Qual sua formação?" />
                                         <span asp-validation-for="Job" class="text-danger"></span>
                                     </div>
                                 </div>
                             </div>
 
-                            <button class="btn btn-warning pull-left">Visualizar Site</button>
+                            <a asp-controller="Profile" asp-action="Index" class="btn btn-warning pull-left" style="color:white">Visualizar Site</a>
                             <button type="submit" class="btn btn-primary pull-right">Atualizar Informações</button>
                             <div class="clearfix"></div>
                         </form>
@@ -84,7 +84,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <form asp-controller="Dashboard" asp-action="SiteBuilder" method="post">
+                <form asp-controller="Dashboard" asp-action="SiteJob" method="post">
                     <input asp-for="Id" type="hidden" />
                     <div class="card card-profile">
                         <div class="card-avatar">
@@ -101,6 +101,115 @@
                         </div>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Habilitar Integrações</h4>
+                        <p class="card-category">Habilite integrações com as redes sociais</p>
+                    </div>
+                    <div class="card-body">
+                        <form asp-controller="Dashboard" asp-action="SiteIntegration" method="post">
+                            <input asp-for="Id" type="hidden" />
+                            <div class="row">
+                                <div class="col-lg-6 col-md-12 col-sm-8">
+                                    <div class="togglebutton">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="toggle"></span>
+                                            Instagram
+                                        </label>
+                                    </div>
+                                    <div class="togglebutton">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="toggle"></span>
+                                            Facebook
+                                        </label>
+                                    </div>
+                                    <div class="togglebutton">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="toggle"></span>
+                                            Whats App
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-4 centralize">
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="checkbox" value="" checked=""> Eu aceito
+                                            <span class="form-check-sign">
+                                                <span class="check"></span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#associar" style="color:white">Termos de Uso...<div class="ripple-container"></div></a>
+                            </div>
+                            <hr />
+                            <a asp-controller="Profile" asp-action="Index" class="btn btn-warning pull-left" style="color:white">Visualizar Site</a>
+                            <a class="btn btn-primary pull-right" data-toggle="modal" data-target="#construcao" style="color:white">Confirmar<div class="ripple-container"></div></a>
+
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="associar" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="title text-center centralize">
+                    <h3>
+                        Termos de Uso
+                    </h3>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="material-icons">clear</i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Escrever os termos de acesso relevantes as ferramentas de midia social externas</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="construcao" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="title text-center">
+                    <h3>
+                        Desenvolvimento
+                    </h3>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="material-icons">clear</i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Ainda estamos com este formulário em construção, qualquer dúvida entrar em contato do seu administrador</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal">Confirmar</button>
             </div>
         </div>
     </div>

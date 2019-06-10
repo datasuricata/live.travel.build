@@ -17,7 +17,7 @@
         <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
 
             <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+                <a asp-action="Index" asp-controller="Home" class="simple-text logo-normal">
                     TODO LOGO
                 </a>
             </div>
@@ -30,10 +30,16 @@
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li class="nav-item @TempData["SiteBuilder"]">
+                    <li class="nav-item @TempData["Site"]">
                         <a class="nav-link" asp-controller="Dashboard" asp-action="Site">
                             <i class="material-icons">web</i>
-                            <p>Site</p>
+                            <p>Gerenciar Site</p>
+                        </a>
+                    </li>
+                    <li class="nav-item @TempData["Formularios"]">
+                        <a class="nav-link" asp-controller="Dashboard" asp-action="Formularios">
+                            <i class="material-icons">content_paste</i>
+                            <p>Formulários</p>
                         </a>
                     </li>
                 </ul>

@@ -13,6 +13,7 @@ namespace live.travel.solution.Data {
 
         public DbSet<Person> People { get; set; }
         public DbSet<Site> Sites { get; set; }
+        public DbSet<Form> Forms { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) {
         }
@@ -51,8 +52,8 @@ namespace live.travel.solution.Data {
         /// <returns>Override SaveChanges</returns>
         public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default(CancellationToken)) {
             foreach (var entry in ChangeTracker.Entries().Where(entry =>
-            entry.Entity.GetType().GetProperty(nameof(EntityBase.CreatedAt)) != null ||
-            entry.Entity.GetType().GetProperty(nameof(EntityBase.UpdatedAt)) != null ||
+            (entry.Entity.GetType().GetProperty(nameof(EntityBase.CreatedAt)) != null ||
+            entry.Entity.GetType().GetProperty(nameof(EntityBase.UpdatedAt)) != null) &&
             entry.Entity.GetType().GetProperty(nameof(EntityBase.Id)) != null)) {
                 if (entry.Property(nameof(EntityBase.CreatedAt)) != null)
                     if (entry.State == EntityState.Added)
