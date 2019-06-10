@@ -1,0 +1,107 @@
+﻿@model live.travel.solution.Models.ViewModels.DashboardViewModel
+
+@{
+    ViewData["Title"] = "Editor de Sites";
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+    TempData["SiteBuilder"] = "active";
+
+    string Uri = Model.PhotoUri ?? "../assets/img/profile/profile.jpg";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Customizar Site</h4>
+                        <p class="card-category">Complete a customização da Landing Page</p>
+                    </div>
+                    <div class="card-body">
+                        <form asp-controller="Dashboard" asp-action="SiteBuilder" method="post">
+                            <input asp-for="Id" type="hidden"/>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Foto de Capa</label>
+                                        <input asp-for="BannerUri" type="text" class="form-control" />
+                                        <span asp-validation-for="BannerUri" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Foto de Perfil</label>
+                                        <input asp-for="PhotoUri" type="text" class="form-control" />
+                                        <span asp-validation-for="PhotoUri" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Link Instagram</label>
+                                        <input asp-for="InstaUri" type="text" class="form-control" />
+                                        <span asp-validation-for="InstaUri" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Link Facebook</label>
+                                        <input asp-for="FaceUri" type="text" class="form-control" />
+                                        <span asp-validation-for="FaceUri" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Link WhastApp</label>
+                                        <input asp-for="WhatsUri" type="text" class="form-control" />
+                                        <span asp-validation-for="WhatsUri" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Nome</label>
+                                        <input asp-for="Name" type="text" class="form-control" />
+                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Atividade</label>
+                                        <input asp-for="Job" type="text" class="form-control" />
+                                        <span asp-validation-for="Job" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-warning pull-left">Visualizar Site</button>
+                            <button type="submit" class="btn btn-primary pull-right">Atualizar Informações</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <form asp-controller="Dashboard" asp-action="SiteBuilder" method="post">
+                    <input asp-for="Id" type="hidden" />
+                    <div class="card card-profile">
+                        <div class="card-avatar">
+                            <a href="#">
+                                <img class="img" src="@Uri" />
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-category text-gray">@Model.Job</h6>
+                            <h4 class="card-title">@Model.Name</h4>
+                            <textarea asp-for="Presentation" rows="5" class="form-control"></textarea>
+                            <span asp-validation-for="Presentation" class="text-danger"></span>
+                            <button class="btn btn-primary btn-round" type="submit">Atualizar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@if (SignInManager.IsSignedIn(User)) {
+
+    <li class="nav-item">
+        <a asp-controller="Profile" asp-action="Index" rel="tooltip" class="nav-link" aria-expanded="false" data-original-title="Mensagens">
+            <i class="material-icons">email</i><div class="ripple-container"></div>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a asp-controller="Dashboard" asp-action="Index" rel="tooltip" class="nav-link" aria-expanded="false" data-original-title="Gerenciador">
+            <i class="material-icons">dashboard</i><div class="ripple-container"></div>
+        </a>
+    </li>
+
+    <li class="dropdown nav-item">
+        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">
+            <i class="material-icons">person</i>
+            <div class="ripple-container"></div>
+        </a>
+        <div class="dropdown-menu dropdown-with-icons">
+            <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+                @User.Identity.Name
+            </a>
+            <a asp-controller="Profile" asp-action="Index" class="dropdown-item" aria-expanded="false">
+                <i class="material-icons">web</i> Meu Site
+            </a>
+            <form class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button class="btn btn-warning btn-sm w-100" type="submit">Sair</button>
+            </form>
+        </div>
+    </li>
+
+} else {
+    <li class="nav-item">
+        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank" data-original-title="Siga no Facebook">
+            <i class="fa fa-facebook-square"></i>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank" data-original-title="Siga no Instagram">
+            <i class="fa fa-instagram"></i>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="btn btn-primary btn-raised btn-round" asp-area="Identity" asp-page="/Account/Login">
+            Entrar
+            <div class="ripple-container"></div>
+        </a>
+    </li>
+}
