@@ -15,24 +15,34 @@ namespace live.travel.solution.Controllers {
 
         private readonly SiteManager _siteManager;
         private readonly PersonManager _personManager;
+        private readonly FormManager _formManager;
         private readonly UserManager<IdentityUser> _userManager;
 
-        public DashboardController(PersonManager personManager, SiteManager siteManager, UserManager<IdentityUser> userManager) {
+        public DashboardController(FormManager formManager, PersonManager personManager, SiteManager siteManager, UserManager<IdentityUser> userManager) {
             _personManager = personManager;
             _siteManager = siteManager;
             _userManager = userManager;
+            _formManager = formManager;
         }
 
         public IActionResult Index() {
             return View();
         }
 
-        public IActionResult Formularios() {
-            return View();
+        public async Task<IActionResult> Formularios() {
+            try {
+                var user = await _userManager.GetUserAsync(HttpContext.User);
+                var forms = await _formManager.ListByUser(user?.Id);
+                return View(forms.ConvertAll(e => (FormViewModel)e));
+            } catch (Exception e) {
+                SetMessage(e.Message, Models.Core.MsgType.Error);
+                return RedirectToAction(nameof(Index));
+            }
         }
 
         public async Task<IActionResult> Site() {
-            var site = await _siteManager.GetCurrent(User?.Identity?.Name);
+            var user = await _userManager.GetUserAsync(HttpContext.User);
+            var site = await _siteManager.GetCurrent(user?.Id);
             return View((DashboardViewModel)site);
         }
 

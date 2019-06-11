@@ -59,11 +59,11 @@
             </div>
         </div>
     </nav>
-
-    @*<partial name="_CookieConsentPartial" />*@
-    <partial name="_Notification" />
+    <div class="fixed-top">
+        <partial name="_Notification" />
+        <partial name="_CookieConsentPartial" />
+    </div>
     @RenderBody()
-
     <footer class="footer">
         <div class="container">
             <nav class="float-left">

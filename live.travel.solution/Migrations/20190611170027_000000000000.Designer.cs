@@ -10,8 +10,8 @@ using live.travel.solution.Data;
 namespace live.travel.solution.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190610175706_0000000000001")]
-    partial class _0000000000001
+    [Migration("20190611170027_000000000000")]
+    partial class _000000000000
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

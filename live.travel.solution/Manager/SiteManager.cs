@@ -14,9 +14,9 @@ namespace live.travel.solution.Manager {
             _context = context;
         }
 
-        public async Task<Models.Core.Site> GetCurrent(string email) {
+        public async Task<Models.Core.Site> GetCurrent(string id) {
             return await _context.Sites.Include(i => i.Person).Include(i => i.Person.IdentityUser)
-                .Where(x => x.Person.IdentityUser.Email == email).AsNoTracking().FirstOrDefaultAsync();
+                .Where(x => x.Person.IdentityUserId == id).AsNoTracking().FirstOrDefaultAsync();
         }
 
         public async Task<Models.Core.Site> GetPublic(string name) {

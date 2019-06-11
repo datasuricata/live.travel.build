@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace live.travel.solution.Migrations
 {
-    public partial class _0000000000001 : Migration
+    public partial class _000000000000 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

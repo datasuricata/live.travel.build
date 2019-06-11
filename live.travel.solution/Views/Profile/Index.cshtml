@@ -36,7 +36,7 @@
                 <div class="description text-center">
                     <p>@Model.Presentation</p>
                 </div>
-                <div class="row">
+                @*<div class="row">
                     <div class="col-md-6 ml-auto mr-auto">
                         <div class="profile-tabs">
                             <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
@@ -80,7 +80,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>*@
             </div>
             <div class="btn btn-primary banner" data-toggle="modal" data-target="#associar">
                 <h2> ASSOCIE-SE</h2>
@@ -107,6 +107,8 @@
     <div class="modal-dialog" style="max-width: 920px;" role="document">
         <div class="modal-content">
             <form class="contact-form" asp-controller="Profile" asp-action="Formulario">
+                <input asp-for="Form.PersonId" type="hidden" value="@Model.PersonId" />
+                <input asp-for="Form.Id" type="hidden" value="@Model.Name" />
                 <div class="modal-header">
                     <div class="title text-center">
                         <h3>
@@ -341,7 +343,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio" name="Radios" id="exampleRadios1" value="2" checked=""> Eu quero o plano <b>PLATINUM</b>
+                                                            <input class="form-check-input" type="radio" name="plan" id="plan1" value="2" checked=""> Eu quero o plano <b>PLATINUM</b>
                                                             <span class="circle">
                                                                 <span class="check"></span>
                                                             </span>
@@ -351,7 +353,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio" name="Radios" id="exampleRadios2" value="1">  Eu quero o plano <b>GOLD</b>
+                                                            <input class="form-check-input" type="radio" name="plan" id="plan2" value="1">  Eu quero o plano <b>GOLD</b>
                                                             <span class="circle">
                                                                 <span class="check"></span>
                                                             </span>
@@ -365,12 +367,16 @@
                                                     <div class="form-group bmd-form-group">
                                                         <label class="label-control bmd-label-static">Nome</label>
                                                         <input type="text" asp-for="Form.Name" class="form-control">
+                                                        <span asp-validation-for="Form.Name" class="text-danger"></span>
+
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group bmd-form-group">
                                                         <label class="label-control bmd-label-static">E-mail</label>
                                                         <input type="email" asp-for="Form.Email" class="form-control">
+                                                        <span asp-validation-for="Form.Email" class="text-danger"></span>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -385,6 +391,7 @@
                                                     <div class="form-group bmd-form-group">
                                                         <label class="label-control bmd-label-static">Telefone (com prefixo)</label>
                                                         <input type="text" asp-for="Form.Tell" class="form-control">
+                                                        <span asp-validation-for="Form.Tell" class="text-danger"></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -426,4 +433,8 @@
     </div>
 </div>
 
-<script src="~/assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
+
+@section Scripts {
+    <script src="~/assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,4 +1,4 @@
-﻿@model live.travel.solution.Models.ViewModels.DashboardViewModel
+﻿@model IEnumerable<live.travel.solution.Models.ViewModels.FormViewModel>
 
 @{
     ViewData["Title"] = "Formularios de Associados";
@@ -7,7 +7,6 @@
 }
 
 <div class="content">
-    <partial name="_Notification" />
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -22,7 +21,7 @@
                                 <thead class=" text-primary">
                                     <tr>
                                         <th>
-                                            ID
+                                            Data
                                         </th>
                                         <th>
                                             Nome
@@ -34,113 +33,49 @@
                                             Telefone
                                         </th>
                                         <th>
-                                            Estado / Cidade
+                                            Estado
+                                        </th>
+                                        <th>
+                                            Ação
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach (var x in Model) {
                                     <tr>
                                         <td>
-                                            1
+                                            @x.CreatedAt
                                         </td>
                                         <td>
-                                            Dakota Rice
-                                        </td>
-                                        <td>
-                                            Niger
-                                        </td>
-                                        <td>
-                                            Oud-Turnhout
+                                            @x.Name
                                         </td>
                                         <td class="text-primary">
-                                            $36,738
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            2
+                                            @x.Plan
                                         </td>
                                         <td>
-                                            Minerva Hooper
-                                        </td>
-                                        <td>
-                                            Curaçao
-                                        </td>
-                                        <td>
-                                            Sinaai-Waas
+                                            @x.Tell
                                         </td>
                                         <td class="text-primary">
-                                            $23,789
+                                            @x.State
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-primary btn-sm btn-fab btn-round" rel="tooltip" data-original-title="Detalhes">
+                                                <i class="material-icons">more_horiz</i>
+                                                <div class="ripple-container"></div>
+                                            </button>
+
+                                            <button class="btn btn-success btn-sm btn-fab btn-round" rel="tooltip" data-original-title="Aprovar">
+                                                <i class="material-icons">done</i>
+                                                <div class="ripple-container"></div>
+                                            </button>
+
+                                            <button class="btn btn-danger btn-sm btn-fab btn-round" rel="tooltip" data-original-title="Excluir">
+                                                <i class="material-icons">delete</i>
+                                                <div class="ripple-container"></div>
+                                            </button>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            3
-                                        </td>
-                                        <td>
-                                            Sage Rodriguez
-                                        </td>
-                                        <td>
-                                            Netherlands
-                                        </td>
-                                        <td>
-                                            Baileux
-                                        </td>
-                                        <td class="text-primary">
-                                            $56,142
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            4
-                                        </td>
-                                        <td>
-                                            Philip Chaney
-                                        </td>
-                                        <td>
-                                            Korea, South
-                                        </td>
-                                        <td>
-                                            Overland Park
-                                        </td>
-                                        <td class="text-primary">
-                                            $38,735
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            5
-                                        </td>
-                                        <td>
-                                            Doris Greene
-                                        </td>
-                                        <td>
-                                            Malawi
-                                        </td>
-                                        <td>
-                                            Feldkirchen in Kärnten
-                                        </td>
-                                        <td class="text-primary">
-                                            $63,542
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            6
-                                        </td>
-                                        <td>
-                                            Mason Porter
-                                        </td>
-                                        <td>
-                                            Chile
-                                        </td>
-                                        <td>
-                                            Gloucester
-                                        </td>
-                                        <td class="text-primary">
-                                            $78,615
-                                        </td>
-                                    </tr>
+                                    }
                                 </tbody>
                             </table>
                         </div>

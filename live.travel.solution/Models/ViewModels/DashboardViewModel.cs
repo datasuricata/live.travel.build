@@ -14,7 +14,7 @@ namespace live.travel.solution.Models.ViewModels {
 
         public string Name { get; set; }
 
-        public FormViewModel Form { get; set; }
+        public FormViewModel Form { get; set; } = new FormViewModel();
 
         public static explicit operator DashboardViewModel(Site v) {
             return v == null ? new DashboardViewModel() : new DashboardViewModel {
