@@ -5,6 +5,7 @@ using live.travel.solution.Models.Core;
 using live.travel.solution.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
@@ -31,6 +32,12 @@ namespace live.travel.solution.Controllers {
 
                 if (!string.IsNullOrEmpty(email)) {
                     var site = await _siteManager.GetCurrent(email);
+
+                    if(site is null) {
+                        SetMessage("Configure seu site antes de continuar", MsgType.Info);
+                        return RedirectToAction("Site", "Dashboard");
+                    }
+
                     return View((DashboardViewModel)site);
                 }
 
@@ -43,7 +50,7 @@ namespace live.travel.solution.Controllers {
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Formulario(FormViewModel vm) {
+        public async Task<IActionResult> Formulario(FormViewModel vm, string Radios = "") {
             try {
 
                 var email = User.Identity.Name;
