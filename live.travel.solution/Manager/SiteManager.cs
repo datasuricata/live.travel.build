@@ -38,12 +38,11 @@ namespace live.travel.solution.Manager {
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateJob(string presentation, string identityId) {
-            var site = GetByUserId(identityId);
+        public async Task UpdateJob(string presentation, string identityId, string personId) {
+            var site = GetSiteByUser(identityId);
 
             if (site is null) {
-                var person = _context.People.SingleOrDefault(x => x.IdentityUserId == identityId);
-                await Register(null, null, null, null, null, presentation, person?.Id);
+                await Register(null, null, null, null, null, presentation, personId);
                 return;
             } else {
                 site.Presentation = presentation;
@@ -52,12 +51,11 @@ namespace live.travel.solution.Manager {
             }
         }
 
-        public async Task UpdateOrRegister(string banner, string insta, string face, string whats, string job, string presentation, string identityId) {
-            var site = GetByUserId(identityId);
+        public async Task UpdateOrRegister(string banner, string insta, string face, string whats, string job, string presentation, string identityId, string personId) {
+            var site = GetSiteByUser(identityId);
 
             if (site is null) {
-                var person = _context.People.SingleOrDefault(x => x.IdentityUserId == identityId);
-                await Register(banner, insta, face, whats, job, presentation, person?.Id);
+                await Register(banner, insta, face, whats, job, presentation, personId);
                 return;
             } else {
 
@@ -72,7 +70,7 @@ namespace live.travel.solution.Manager {
             }
         }
 
-        public Models.Core.Site GetByUserId(string identityId) {
+        public Models.Core.Site GetSiteByUser(string identityId) {
             return _context.Sites.Include(i => i.Person).Where(x => x.Person.IdentityUserId == identityId).FirstOrDefault();
         }
     }

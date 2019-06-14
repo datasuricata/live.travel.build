@@ -1,4 +1,6 @@
-﻿@{
+﻿@model live.travel.solution.Models.ViewModels.DashboardViewGeneral
+
+@{
     ViewData["Title"] = "Inicio";
     Layout = "~/Views/Shared/_Dashboard.cshtml";
     TempData["Index"] = "active";
@@ -10,17 +12,15 @@
             <div class="col-md-4">
                 <div class="card card-chart">
                     <div class="card-header card-header-success">
-                        <div class="ct-chart" id="dailySalesChart"></div>
+                        <p class="centralize h5 badge badge-dark h-100 w-100">@Model.Daily</p>
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title">Entradas Diarias</h4>
-                        <p class="card-category">
-                            <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> aumento nas entradas de hoje.
-                        </p>
+                        <h4 class="card-title">Entradas Diárias</h4>
+                        <p class="card-category">Resumo de todas diárias</p>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
-                            <i class="material-icons">access_time</i> ultima atualização:
+                            <i class="material-icons">access_time</i> ultima atualização: @DateTime.Now.ToString("mm/dd HH:mm")
                         </div>
                     </div>
                 </div>
@@ -28,15 +28,15 @@
             <div class="col-md-4">
                 <div class="card card-chart">
                     <div class="card-header card-header-warning">
-                        <div class="ct-chart" id="websiteViewsChart"></div>
+                        <p class="centralize h5 badge badge-dark h-100 w-100">@Model.All</p>
                     </div>
                     <div class="card-body">
                         <h4 class="card-title">Inscrições E-mail</h4>
-                        <p class="card-category">Performance da ultima campanha</p>
+                        <p class="card-category">Resumo de todas entradas</p>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
-                            <i class="material-icons">access_time</i> ultima atualização:
+                            <i class="material-icons">access_time</i> ultima atualização: @DateTime.Now.ToString("mm/dd HH:mm")
                         </div>
                     </div>
                 </div>
@@ -44,62 +44,50 @@
             <div class="col-md-4">
                 <div class="card card-chart">
                     <div class="card-header card-header-danger">
-                        <div class="ct-chart" id="completedTasksChart"></div>
+                        <p class="centralize h5 badge badge-dark h-100 w-100">@Model.Completes</p>
                     </div>
                     <div class="card-body">
                         <h4 class="card-title">Registros Completos</h4>
-                        <p class="card-category">Performance da ultima campanha</p>
+                        <p class="card-category">Registros completos</p>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
-                            <i class="material-icons">access_time</i> ultima atualização:
+                            <i class="material-icons">access_time</i> ultima atualização: @DateTime.Now.ToString("mm/dd HH:mm")
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-6 col-md-12">
+            <div class="col-lg-12 col-md-12">
                 <div class="card">
                     <div class="card-header card-header-warning">
                         <h4 class="card-title">Status de Associados</h4>
                         <p class="card-category">Ultimas ordens</p>
                     </div>
-                    <div class="card-body table-responsive">
-                        <table class="table table-hover">
-                            <thead class="text-warning">
-                            <th>ID</th>
-                            <th>Nome</th>
-                            <th>Plano</th>
-                            <th>Cidade</th>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Dakota Rice</td>
-                                    <td>GOLD</td>
-                                    <td>Niger</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Minerva Hooper</td>
-                                    <td>GOLD</td>
-                                    <td>Curaçao</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Sage Rodriguez</td>
-                                    <td>PLATINUM</td>
-                                    <td>Netherlands</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Philip Chaney</td>
-                                    <td>PLATINUM</td>
-                                    <td>Korea, South</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-warning">
+                                    <tr>
+                                        <th>Data</th>
+                                        <th>Nome</th>
+                                        <th>Plano</th>
+                                        <th>Cidade</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var x in Model.Forms) {
+                                        <tr>
+                                            <td>@x.CreatedAt</td>
+                                            <td>@x.Name</td>
+                                            <td class="text-primary">@x.Plan</td>
+                                            <td class="text-primary">@x.City</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

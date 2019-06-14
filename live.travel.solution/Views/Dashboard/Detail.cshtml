@@ -1,0 +1,35 @@
+﻿@model live.travel.solution.Models.ViewModels.FormViewModel
+
+@{
+    Layout = null;
+}
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title">Detalhes - Formulário</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <i class="material-icons">clear</i>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12 ">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr><td><b class="h4 w-25 badge badge-warning">Plano: </b>@Model.Plan</td></tr>
+                            <tr><td><b class="h4 w-25 badge badge-warning">Status: </b>@Model.Status</td></tr>
+                            <tr><td><b class="h4 w-25 badge badge-warning">Nome: </b>@Model.Name</td></tr>
+                            <tr><td><b class="h4 w-25 badge badge-warning">Email: </b>@Model.Email</td></tr>
+                            <tr><td><b class="h4 w-25 badge badge-warning">Nascimento: </b>@Model.BirthDate</td></tr>
+                            <tr><td><b class="h4 w-25 badge badge-warning">Telefone: </b>@Model.Tell</td></tr>
+                            <tr><td><b class="h4 w-25 badge badge-warning">Cidade: </b>@Model.City</td></tr>
+                            <tr><td><b class="h4 w-25 badge badge-warning">Estado: </b>@Model.State</td></tr>
+                            <tr><td><b class="h4 w-25 badge badge-warning">País: </b>@Model.Provincy</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

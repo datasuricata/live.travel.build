@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<live.travel.solution.Models.ViewModels.FormViewModel>
+@using live.travel.solution.Models.ViewModels
 
 @{
     ViewData["Title"] = "Formularios de Associados";
@@ -20,61 +21,34 @@
                             <table class="table">
                                 <thead class=" text-primary">
                                     <tr>
-                                        <th>
-                                            Data
-                                        </th>
-                                        <th>
-                                            Nome
-                                        </th>
-                                        <th>
-                                            Plano
-                                        </th>
-                                        <th>
-                                            Telefone
-                                        </th>
-                                        <th>
-                                            Estado
-                                        </th>
-                                        <th>
-                                            Ação
-                                        </th>
+                                        <th>Data</th>
+                                        <th>Nome</th>
+                                        <th>Plano</th>
+                                        <th>Telefone</th>
+                                        <th>Estado</th>
+                                        <th>Ação</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach (var x in Model) {
-                                    <tr>
-                                        <td>
-                                            @x.CreatedAt
-                                        </td>
-                                        <td>
-                                            @x.Name
-                                        </td>
-                                        <td class="text-primary">
-                                            @x.Plan
-                                        </td>
-                                        <td>
-                                            @x.Tell
-                                        </td>
-                                        <td class="text-primary">
-                                            @x.State
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-primary btn-sm btn-fab btn-round" rel="tooltip" data-original-title="Detalhes">
-                                                <i class="material-icons">more_horiz</i>
-                                                <div class="ripple-container"></div>
-                                            </button>
-
-                                            <button class="btn btn-success btn-sm btn-fab btn-round" rel="tooltip" data-original-title="Aprovar">
-                                                <i class="material-icons">done</i>
-                                                <div class="ripple-container"></div>
-                                            </button>
-
-                                            <button class="btn btn-danger btn-sm btn-fab btn-round" rel="tooltip" data-original-title="Excluir">
-                                                <i class="material-icons">delete</i>
-                                                <div class="ripple-container"></div>
-                                            </button>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td>@x.CreatedAt</td>
+                                            <td>@x.Name</td>
+                                            <td class="text-primary">@x.Plan</td>
+                                            <td>@x.Tell</td>
+                                            <td class="text-primary">@x.State</td>
+                                            <td>
+                                                <a asp-controller="Dashboard" asp-action="Detail" asp-route-id="@x.Id" class="btn btn-default btn-link btn-sm" data-toggle="modal" data-target="#detail">
+                                                    <i class="material-icons">more_horiz</i>
+                                                </a>
+                                                <a asp-controller="Dashboard" asp-action="Aprove" asp-route-id="@x.Id" class="btn btn-success btn-link btn-sm" data-toggle="modal" data-target="#aprove">
+                                                    <i class="material-icons">done</i>
+                                                </a>
+                                                <a asp-controller="Dashboard" asp-action="Remove" asp-route-id="@x.Id" class="btn btn-danger btn-link btn-sm" data-toggle="modal" data-target="#remove">
+                                                    <i class="material-icons">close</i>
+                                                </a>
+                                            </td>
+                                        </tr>
                                     }
                                 </tbody>
                             </table>
@@ -83,5 +57,23 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        @await Html.PartialAsync("../Dashboard/Detail.cshtml", new FormViewModel())
+    </div>
+</div>
+
+<div class="modal fade" id="aprove" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        @await Html.PartialAsync("../Dashboard/Aprove.cshtml", new FormViewModel())
+    </div>
+</div>
+
+<div class="modal fade" id="remove" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        @await Html.PartialAsync("../Dashboard/Remove.cshtml", new FormViewModel())
     </div>
 </div>

@@ -1,4 +1,5 @@
 ﻿using live.travel.solution.Models.Core;
+using System.Collections.Generic;
 
 namespace live.travel.solution.Models.ViewModels {
     public class DashboardViewModel {
@@ -30,5 +31,13 @@ namespace live.travel.solution.Models.ViewModels {
                 Presentation = v.Presentation,
             };
         }
+    }
+
+    public class DashboardViewGeneral {
+        public int Daily { get; set; }
+        public int All { get; set; }
+        public int Completes { get; set; }
+
+        public List<FormViewModel> Forms { get; set; } = new List<FormViewModel>();
     }
 }

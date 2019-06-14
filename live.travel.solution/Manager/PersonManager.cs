@@ -17,14 +17,21 @@ namespace live.travel.solution.Manager {
             await _context.SaveChangesAsync();
         }
 
-        public async Task<Person> GetCurrent(string email) {
-            return await _context.People.Where(x => x.IdentityUser.Email == email)
+        public async Task<Person> GetCurrent(string id) {
+            return await _context.People.Where(x => x.IdentityUserId == id)
                 .AsNoTracking().FirstOrDefaultAsync();
         }
 
         public async Task UpdatePhoto(string uri, string identityId) {
             var people = await _context.People.Where(x => x.IdentityUserId == identityId).FirstOrDefaultAsync();
             people.PhotoUri = uri;
+            _context.Update(people);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task UpdateName(string name, string identityId) {
+            var people = await _context.People.Where(x => x.IdentityUserId == identityId).FirstOrDefaultAsync();
+            people.Name = name;
             _context.Update(people);
             await _context.SaveChangesAsync();
         }

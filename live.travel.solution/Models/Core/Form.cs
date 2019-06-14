@@ -12,6 +12,8 @@ namespace live.travel.solution.Models.Core {
         public string City { get; set; }
         public string State { get; set; }
         public string Provincy { get; set; }
+
+        //public string Detail {get;set;} only for remove details
         public string PersonId { get; set; }
 
         public Form() {

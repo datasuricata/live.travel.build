@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <Folder Include="Data\Seed\" />
+    <Folder Include="wwwroot\assets\img\profile\" />
   </ItemGroup>
 
 
