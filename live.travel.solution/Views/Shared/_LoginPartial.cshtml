@@ -5,19 +5,19 @@
 @if (SignInManager.IsSignedIn(User)) {
 
     <li class="nav-item">
-        <a asp-controller="Profile" asp-action="Index" rel="tooltip" class="nav-link" aria-expanded="false" data-original-title="Mensagens">
+        <a asp-controller="Profile" asp-action="Index" rel="tooltip" class="nav-link centralize" aria-expanded="false" data-original-title="Mensagens">
             <i class="material-icons">email</i><div class="ripple-container"></div>
         </a>
     </li>
 
     <li class="nav-item">
-        <a asp-controller="Dashboard" asp-action="Index" rel="tooltip" class="nav-link" aria-expanded="false" data-original-title="Gerenciador">
+        <a asp-controller="Dashboard" asp-action="Index" rel="tooltip" class="nav-link centralize" aria-expanded="false" data-original-title="Gerenciador">
             <i class="material-icons">dashboard</i><div class="ripple-container"></div>
         </a>
     </li>
 
     <li class="dropdown nav-item">
-        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">
+        <a href="#" class="dropdown-toggle nav-link centralize" data-toggle="dropdown" aria-expanded="false">
             <i class="material-icons">face</i>
             <div class="ripple-container"></div>
         </a>

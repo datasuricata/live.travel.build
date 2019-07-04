@@ -6,13 +6,15 @@
     var cookieString = consentFeature?.CreateConsentCookie();
 }
 
-@if (showBanner)
-{
-    <div id="cookieConsent" class="alert alert-info alert-dismissible fade show" role="alert">
-        Este site trabalha com cookies. <a asp-area="" asp-controller="Home" asp-action="Privacy">Saiba mais</a>.
-        <button type="button" class="accept-policy close" data-dismiss="alert" aria-label="Fechar" data-cookie-string="@cookieString">
+@if (showBanner) {
+    <div id="cookieConsent" class="text-uppercase alert alert-inverse alert-dismissible fade show" role="alert">
+        <strong class="text-center">Este site trabalha com cookies. </strong><a asp-area="" asp-controller="Home" asp-action="Privacy" class="btn btn-dark">Saiba mais</a>
+        <button type="button" data-dismiss="alert" data-cookie-string="@cookieString" class="btn btn-rose pull-right accept-policy">
             <span aria-hidden="true">Aceitar</span>
         </button>
+        @*<button type="button" class="accept-policy close" data-dismiss="alert" aria-label="Fechar" data-cookie-string="@cookieString">
+                <span aria-hidden="true">Aceitar</span>
+          </button>*@
     </div>
     <script>
         (function () {

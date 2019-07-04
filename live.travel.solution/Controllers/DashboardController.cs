@@ -71,7 +71,7 @@ namespace live.travel.solution.Controllers {
             }
         }
 
-        public async Task<IActionResult> Formularios() {
+        public async Task<IActionResult> Forms() {
             try {
                 var user = await _userManager.GetUserAsync(HttpContext.User);
                 var forms = await _formManager.ListByUser(user?.Id);
@@ -100,7 +100,7 @@ namespace live.travel.solution.Controllers {
             try {
 
                 await _formManager.Remove(vm.Id, null);
-                return View(nameof(Formularios));
+                return View(nameof(Forms));
 
             } catch (Exception e) {
                 SetMessage(e.Message, Models.Core.MsgType.Error);
@@ -114,7 +114,7 @@ namespace live.travel.solution.Controllers {
             try {
 
                 await _formManager.ChangeStatus(vm.Id, Models.Core.FormStatus.Prospected);
-                return View(nameof(Formularios));
+                return View(nameof(Forms));
 
             } catch (Exception e) {
                 SetMessage(e.Message, Models.Core.MsgType.Error);
