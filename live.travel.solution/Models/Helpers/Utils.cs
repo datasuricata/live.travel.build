@@ -32,5 +32,9 @@ namespace live.travel.solution.Models.Helpers {
             }
             return str;
         }
+
+        public static string AjustHtml(this string value) {
+            return value.Replace(Environment.NewLine, "").Replace("\"", "'");
+        }
     }
 }

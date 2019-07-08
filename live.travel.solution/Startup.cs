@@ -1,5 +1,7 @@
 ﻿using live.travel.solution.Data;
 using live.travel.solution.Manager;
+using live.travel.solution.Services;
+using live.travel.solution.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -31,7 +33,9 @@ namespace live.travel.solution {
             services.AddDefaultIdentity<IdentityUser>().AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+            services.AddScoped<IViewRender, ViewRender>();
             services.AddScoped<PersonManager>();
+            services.AddScoped<SiteManager>();
             services.AddScoped<SiteManager>();
             services.AddScoped<FormManager>();
 

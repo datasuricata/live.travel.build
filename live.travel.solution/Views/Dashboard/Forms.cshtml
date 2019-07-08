@@ -38,13 +38,14 @@
                                             <td>@x.Tell</td>
                                             <td class="text-primary">@x.State</td>
                                             <td>
-                                                <a asp-controller="Dashboard" asp-action="Detail" asp-route-id="@x.Id" class="btn btn-warning btn-white btn-sm" data-toggle="modal" data-target="#detail">
+                                                <a onclick="RenderModal('@x.Id', 'Detail')" class="btn btn-warning btn-white btn-sm" data-toggle="modal" data-target="#detail">
                                                     <i class="material-icons">more_horiz</i>
                                                 </a>
-                                                <a asp-controller="Dashboard" asp-action="Aprove" asp-route-id="@x.Id" class="btn btn-success btn-white btn-sm" data-toggle="modal" data-target="#aprove">
+
+                                                <a onclick="RenderModal('@x.Id', 'Aprove')" class="btn btn-success btn-white btn-sm" data-toggle="modal" data-target="#aprove">
                                                     <i class="material-icons">done</i>
                                                 </a>
-                                                <a asp-controller="Dashboard" asp-action="Remove" asp-route-id="@x.Id" class="btn btn-danger btn-white btn-sm" data-toggle="modal" data-target="#remove">
+                                                <a onclick="RenderModal('@x.Id', 'Remove')" class="btn btn-danger btn-white btn-sm" data-toggle="modal" data-target="#remove">
                                                     <i class="material-icons">close</i>
                                                 </a>
                                             </td>
@@ -61,19 +62,38 @@
 </div>
 
 <div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        @await Html.PartialAsync("../Dashboard/Detail.cshtml", new FormViewModel())
+    <div class="modal-dialog" id="modalContent" role="document">
+        @*@await Html.PartialAsync("../Dashboard/Detail.cshtml", new FormViewModel())*@
     </div>
 </div>
 
 <div class="modal fade" id="aprove" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        @await Html.PartialAsync("../Dashboard/Aprove.cshtml", new FormViewModel())
+    <div class="modal-dialog" id="modalContent" role="document">
+        @*@await Html.PartialAsync("../Dashboard/Aprove.cshtml", new FormViewModel())*@
     </div>
 </div>
 
 <div class="modal fade" id="remove" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        @await Html.PartialAsync("../Dashboard/Remove.cshtml", new FormViewModel())
+    <div class="modal-dialog" id="modalContent" role="document">
+        @*@await Html.PartialAsync("../Dashboard/Remove.cshtml", new FormViewModel())*@
     </div>
 </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script>
+    function RenderModal(id, action) {
+        $.ajax({
+            url: action + '?id=' + id,
+        }).done(function (result) {
+            $("#modalContent").html(result.value);
+        });
+    }
+</script>
+
+
+<script type="text/javascript">
+    $(document).on('hidden.bs.modal', '.modal', function () { $("#detail").remove(); $(".modal-dialog").remove(); });
+</script>

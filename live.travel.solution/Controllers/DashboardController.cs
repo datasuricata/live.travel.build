@@ -1,8 +1,11 @@
 ﻿using live.travel.solution.Controllers.Base;
 using live.travel.solution.Manager;
 using live.travel.solution.Models;
+using live.travel.solution.Models.Helpers;
 using live.travel.solution.Models.ViewModels;
+using live.travel.solution.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -18,12 +21,15 @@ namespace live.travel.solution.Controllers {
         private readonly PersonManager _personManager;
         private readonly FormManager _formManager;
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly IViewRender _viewRender;
 
-        public DashboardController(FormManager formManager, PersonManager personManager, SiteManager siteManager, UserManager<IdentityUser> userManager) {
+
+        public DashboardController(IViewRender viewRender, FormManager formManager, PersonManager personManager, SiteManager siteManager, UserManager<IdentityUser> userManager) {
             _personManager = personManager;
             _siteManager = siteManager;
             _userManager = userManager;
             _formManager = formManager;
+            _viewRender = viewRender;
         }
 
         public async Task<IActionResult> Index() {
@@ -53,9 +59,11 @@ namespace live.travel.solution.Controllers {
 
         #region [ formulario ]
 
+
         public IActionResult Remove(string id) {
             try {
-                return View(new FormViewModel { Id = id });
+                return new JsonResult(new HtmlString(_viewRender.Render("Dashboard/Remove",
+                    new FormViewModel { Id = id }).AjustHtml()));
             } catch (Exception e) {
                 SetMessage(e.Message, Models.Core.MsgType.Error);
                 return RedirectToAction(nameof(Index));
@@ -64,7 +72,8 @@ namespace live.travel.solution.Controllers {
 
         public IActionResult Aprove(string id) {
             try {
-                return View(new FormViewModel { Id = id });
+                return new JsonResult(new HtmlString(_viewRender.Render("Dashboard/Aprove", 
+                    new FormViewModel { Id = id }).AjustHtml()));
             } catch (Exception e) {
                 SetMessage(e.Message, Models.Core.MsgType.Error);
                 return RedirectToAction(nameof(Index));
@@ -84,10 +93,9 @@ namespace live.travel.solution.Controllers {
 
         public async Task<IActionResult> Detail(string id) {
             try {
-
                 var form = await _formManager.GetDetail(id);
-                return View((FormViewModel)form);
-
+                return new JsonResult(new HtmlString(_viewRender.Render("Dashboard/Detail", 
+                    (FormViewModel)form).AjustHtml()));
             } catch (Exception e) {
                 SetMessage(e.Message, Models.Core.MsgType.Error);
                 return RedirectToAction(nameof(Index));
