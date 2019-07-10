@@ -40,18 +40,18 @@
                             <div class="ripple-container"></div>
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
-                            <a asp-controller="Home" asp-action="UnderConstruction" class="dropdown-item">
+                            <a asp-controller="Service" asp-action="Presentations" class="dropdown-item">
                                 <i class="material-icons">duo</i> Apresentações
                             </a>
-                            <a asp-controller="Home" asp-action="UnderConstruction" class="dropdown-item">
-                                <i class="material-icons">comment</i> Treinamentos
-                            </a>
-                            <a asp-controller="Home" asp-action="UnderConstruction" class="dropdown-item">
+                            @*<a asp-controller="Home" asp-action="UnderConstruction" class="dropdown-item">
+                                    <i class="material-icons">comment</i> Treinamentos
+                                </a>*@
+                            <a asp-controller="Service" asp-action="Mentoring" class="dropdown-item">
                                 <i class="material-icons">screen_share</i> Mentorias
                             </a>
-                            <a asp-controller="Home" asp-action="UnderConstruction" class="dropdown-item">
-                                <i class="material-icons">layers</i> Eventos
-                            </a>
+                            @*<a asp-controller="Home" asp-action="UnderConstruction" class="dropdown-item">
+                                    <i class="material-icons">layers</i> Eventos
+                                </a>*@
                         </div>
                     </li>
                     <partial name="_LoginPartial" />
@@ -120,6 +120,7 @@
     <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
     <script src="~/assets/js/material-kit.js?v=2.0.5" type="text/javascript"></script>
     <!-- Js do Site -->
+    <script src="~/js/tilt.jquery.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)

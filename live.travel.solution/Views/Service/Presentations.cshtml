@@ -1,0 +1,49 @@
+﻿@model live.travel.solution.Models.ViewModels.DashboardViewModel
+
+@{
+    ViewData["Title"] = "Apresentações";
+}
+
+<body class="profile-page sidebar-collapse">
+    <div class="page-header header-filter" data-parallax="true" style="background-image: url('../assets/img/banner/banner2.png');"></div>
+    <div class="main main-raised">
+        <div class="profile-content">
+            <div class="container">
+                <div class="container text-center" style="padding-bottom: 100px;">
+                    <div class="features">
+                        <div class="row">
+                            <div class="col-md-8 ml-auto mr-auto">
+                                <h2 class="text-uppercase">Apresentação</h2>
+                                <h4 class="text-info">Acompanhe a agenda de apresentação.</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="features">
+                        <div class="row centralize">
+                            <div class="card" data-tilt style="width: 30rem;">
+                                <img class="card-img-top" src="https://images.unsplash.com/photo-1517303650219-83c8b1788c4c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd4c162d27ea317ff8c67255e955e3c8&auto=format&fit=crop&w=2691&q=80" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title">Apresentação</h4>
+                                    <h6 class="card-subtitle mb-2 text-muted">Ínicio: 20:00 hs</h6>
+                                    <p class="card-text">Acompanhe nossa agenda de apresentação e fique por dentro de como obter sucesso e liberdade vivendo de viajar.</p>
+                                    @*<a href="#0" class="card-link">Card link</a>
+                                    <a href="#0" class="card-link">Another link</a>*@
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <button class="btn btn-info btn-round">
+                                    <i class="material-icons">videocam</i> LINK ZOOM
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

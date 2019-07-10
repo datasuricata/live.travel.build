@@ -1,22 +1,19 @@
-﻿using live.travel.solution.Models;
+﻿using live.travel.solution.Controllers.Base;
+using live.travel.solution.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace live.travel.solution.Controllers {
-    public class HomeController : Controller {
-        public IActionResult Index() {
+    public class ServiceController : CoreController {
+        public IActionResult Presentations() {
             return View();
         }
 
-        public IActionResult Privacy() {
+        public IActionResult Trainings() {
             return View();
         }
 
-        public IActionResult Faq() {
-            return View();
-        }
-
-        public IActionResult UnderConstruction() {
+        public IActionResult Mentoring() {
             return View();
         }
 
