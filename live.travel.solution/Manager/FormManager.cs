@@ -2,6 +2,7 @@
 using live.travel.solution.Models.Core;
 using live.travel.solution.Models.Helpers;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,20 +58,20 @@ namespace live.travel.solution.Manager {
             return await _context.Forms.Where(x => x.Id == id).FirstOrDefaultAsync();
         }
 
-        public async Task<List<Form>> ListByUser(string id) {
+        public async Task<List<Form>> ListByUser(string id, FormStatus status) {
             var person = await GetPerson(id);
-            return await _context.Forms.Where(x => !x.IsDeleted && x.PersonId == person.Id)
+            return await _context.Forms.Where(x => !x.IsDeleted && x.PersonId == person.Id && x.Status == status)
                 .AsNoTracking().OrderByDescending(x => x.CreatedAt).ToListAsync();
         }
 
         public async Task<List<KeyValuePair<string,int>>> ListCounters(string id){
-            var now = DateTime.UtcNow;
+            var now = DateTime.UtcNow.Date;
 
             var person = await GetPerson(id);
             var query = _context.Forms.Where(x => !x.IsDeleted && x.PersonId == person.Id).AsNoTracking().AsQueryable();
 
             int all = await query.CountAsync();
-            int daily = await query.Where(x => x.CreatedAt == now).AsNoTracking().CountAsync();
+            int daily = await query.Where(x => x.CreatedAt >= now).AsNoTracking().CountAsync();
             int complete = await query.Where(x => x.Status == FormStatus.Prospected).AsNoTracking().CountAsync();
 
             return new List<KeyValuePair<string, int>>{

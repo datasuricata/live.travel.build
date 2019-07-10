@@ -83,7 +83,7 @@ namespace live.travel.solution.Controllers {
         public async Task<IActionResult> Forms() {
             try {
                 var user = await _userManager.GetUserAsync(HttpContext.User);
-                var forms = await _formManager.ListByUser(user?.Id);
+                var forms = await _formManager.ListByUser(user?.Id, Models.Core.FormStatus.New);
                 return View(forms.ConvertAll(e => (FormViewModel)e));
             } catch (Exception e) {
                 SetMessage(e.Message, Models.Core.MsgType.Error);
@@ -103,12 +103,12 @@ namespace live.travel.solution.Controllers {
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Remove(FormViewModel vm) {
+        //[ValidateAntiForgeryToken] todo anti atack CSRF/XSRF
+        public async Task<IActionResult> Remove(string id, string detail) {
             try {
-
-                await _formManager.Remove(vm.Id, null);
-                return View(nameof(Forms));
+                await _formManager.Remove(id, null);
+                SetMessage("Formulário removido.", Models.Core.MsgType.Info);
+                return RedirectToAction(nameof(Forms));
 
             } catch (Exception e) {
                 SetMessage(e.Message, Models.Core.MsgType.Error);
@@ -117,12 +117,12 @@ namespace live.travel.solution.Controllers {
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Aprove(FormViewModel vm) {
+        //[ValidateAntiForgeryToken] todo anti atack CSRF/XSRF
+        public async Task<IActionResult> AproveAccount(string id) {
             try {
-
-                await _formManager.ChangeStatus(vm.Id, Models.Core.FormStatus.Prospected);
-                return View(nameof(Forms));
+                await _formManager.ChangeStatus(id, Models.Core.FormStatus.Prospected);
+                SetMessage("Cliente prospectado.", Models.Core.MsgType.Success);
+                return RedirectToAction(nameof(Forms));
 
             } catch (Exception e) {
                 SetMessage(e.Message, Models.Core.MsgType.Error);

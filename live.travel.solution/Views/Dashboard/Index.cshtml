@@ -1,7 +1,7 @@
 ﻿@model live.travel.solution.Models.ViewModels.DashboardViewGeneral
 
 @{
-    ViewData["Title"] = "Inicio";
+    ViewData["Title"] = "Dashboard";
     Layout = "~/Views/Shared/_Dashboard.cshtml";
     TempData["Index"] = "active";
 }
@@ -20,7 +20,7 @@
                     </div>
                     <div class="card-footer">
                         <div class="stats">
-                            <i class="material-icons">access_time</i> ultima atualização: @DateTime.Now.ToString("mm/dd HH:mm")
+                            <i class="material-icons">access_time</i> ultima atualização: @DateTime.Now.ToString("MM/dd HH:mm")
                         </div>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                     </div>
                     <div class="card-footer">
                         <div class="stats">
-                            <i class="material-icons">access_time</i> ultima atualização: @DateTime.Now.ToString("mm/dd HH:mm")
+                            <i class="material-icons">access_time</i> ultima atualização: @DateTime.Now.ToString("MM/dd HH:mm")
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                     </div>
                     <div class="card-footer">
                         <div class="stats">
-                            <i class="material-icons">access_time</i> ultima atualização: @DateTime.Now.ToString("mm/dd HH:mm")
+                            <i class="material-icons">access_time</i> ultima atualização: @DateTime.Now.ToString("MM/dd HH:mm")
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                                         <th>Data</th>
                                         <th>Nome</th>
                                         <th>Plano</th>
-                                        <th>Cidade</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -82,7 +82,7 @@
                                             <td>@x.CreatedAt</td>
                                             <td>@x.Name</td>
                                             <td class="text-primary">@x.Plan</td>
-                                            <td class="text-primary">@x.City</td>
+                                            <td class="text-primary">@x.Status</td>
                                         </tr>
                                     }
                                 </tbody>

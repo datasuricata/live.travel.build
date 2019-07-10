@@ -1,11 +1,10 @@
 ﻿@model live.travel.solution.Models.ViewModels.FormViewModel
 
-@{
-    Layout = null;
-}
+@{Layout = null;}
 
-<form asp-controller="Dashboard" asp-action="Aprove">
-    <input asp-for="Id" hidden />
+<form action="/Dashboard/AproveAccount" method="post">
+
+    <input value="@Model.Id" name="id" hidden />
     <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title">Confirmar Membro?</h5>
@@ -17,7 +16,7 @@
             <p>Cliente já foi cadastrado na plataforma da World Ventures e agora faz parte da equipe?</p>
         </div>
         <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" data-dismiss="modal">Confirmar</button>
+            <button type="submit" class="btn btn-primary">Confirmar</button>
         </div>
     </div>
 </form>

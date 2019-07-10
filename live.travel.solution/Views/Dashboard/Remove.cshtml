@@ -1,11 +1,10 @@
 ﻿@model live.travel.solution.Models.ViewModels.FormViewModel
 
-@{
-    Layout = null;
-}
+@{Layout = null;}
 
-<form asp-controller="Dashboard" asp-action="Remove">
-    <input asp-for="Id" hidden />
+<form action="/Dashboard/Remove" method="post">
+
+    <input value="@Model.Id" name="id" hidden />
     <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title">Remover Formulário</h5>
@@ -15,10 +14,10 @@
         </div>
         <div class="modal-body">
             <p>Insira as observações no campo a baixo o motivo por desclassificar este formulário</p>
-            <textarea type="text" class="form-control" placeholder="Justifique o motivo pelo qual esta sendo desclassificado..." name="Detail" rows="5" value=""></textarea>
+            <textarea type="text" class="form-control" placeholder="Justifique o motivo pelo qual esta sendo desclassificado..." name="detail" rows="5" value=""></textarea>
         </div>
         <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" data-dismiss="modal">Confirmar</button>
+            <button type="submit" class="btn btn-primary">Confirmar</button>
         </div>
     </div>
 </form>
